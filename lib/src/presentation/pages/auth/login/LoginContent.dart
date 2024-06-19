@@ -64,7 +64,7 @@ class LoginContent extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "back....",
+                  "De volta....",
                   style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
