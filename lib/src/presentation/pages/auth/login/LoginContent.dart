@@ -1,0 +1,194 @@
+import 'dart:ffi';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:indriver_clone_flutter/src/presentation/pages/auth/widgets/DefaultBottom.dart';
+import 'package:indriver_clone_flutter/src/presentation/pages/auth/widgets/DefaultTextField.dart';
+
+class LoginContent extends StatelessWidget {
+  const LoginContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.black, Colors.blue]),
+          ),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.only(left: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _textLoginRotated("Login", Colors.white, 30, FontWeight.bold),
+              SizedBox(
+                height: 50,
+              ),
+               _textLoginRotated("Registro", Colors.white, 24, FontWeight.bold),
+              SizedBox(
+                height: 90,
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 60, bottom: 60),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.black, Colors.blue],
+              ),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  bottomLeft: Radius.circular(25))),
+          child: Container(
+            margin: EdgeInsets.only(right: 15, left: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  "Bem-vindo",
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "back....",
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    width: 150,
+                    height: 150,
+                    'assets/img/car_white.png',
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 40),
+                  child: Text(
+                    "Conecte-se",
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                DefaultTextfield(
+                  text: "Email",
+                  icon: Icons.email_outlined,
+                  margin: EdgeInsets.only(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                  ),
+                ),
+                DefaultTextfield(
+                  text: "Senha",
+                  margin: EdgeInsets.only(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                  ),
+                  icon: Icons.lock_clock_outlined,
+                ),
+                SizedBox(height: 20), // Espaçamento entre os campos e o botão
+                DefaultBottom(
+                  text: "Entrar",
+                  font: 18.0,
+                  margin: EdgeInsets.only(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                  ),
+                  backgroundColor: Colors.white,
+                  cor: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                  click: () {},
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Não tem conta ?",
+                        style: TextStyle(color: Colors.grey[100], fontSize: 17),
+                      ),
+                      SizedBox(width: 7),
+                      Text(
+                        "Registe-se",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 20,
+                      height: 1,
+                      color: Colors.white,
+                      margin: EdgeInsets.only(
+                        left: 5,
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                      ),
+                      child: Text("OR",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                          )),
+                    ),
+                    Container(
+                      width: 20,
+                      height: 1,
+                      color: Colors.white,
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _textLoginRotated(String text, Color textColor, double font, FontWeight fontWeight) {
+    return RotatedBox(
+      quarterTurns: 1,
+      child: Text(
+        text,
+        style: TextStyle(
+            color: Colors.white, fontSize: font, fontWeight: fontWeight,)
+      ),
+    );
+  }
+}
