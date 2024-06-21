@@ -5,7 +5,7 @@ class DefaultBottom extends StatelessWidget {
   double font;
   MaterialColor cor;
   FontWeight fontWeight;
-  VoidCallback click;
+  Function onPressed;
   Color backgroundColor;
   EdgeInsetsGeometry margin;
 
@@ -14,7 +14,7 @@ class DefaultBottom extends StatelessWidget {
       required this.font,
       required this.cor,
       required this.fontWeight,
-      required this.click,
+      required this.onPressed,
       required this.backgroundColor,
       required this.margin
       });
@@ -25,7 +25,9 @@ class DefaultBottom extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       margin: margin,
       child: ElevatedButton(
-        onPressed: click,
+        onPressed: (){
+          onPressed();
+        },
         style: ElevatedButton.styleFrom(backgroundColor: backgroundColor),
         child: Text(
           text,

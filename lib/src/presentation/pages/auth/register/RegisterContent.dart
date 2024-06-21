@@ -88,7 +88,9 @@ class Registercontent extends StatelessWidget {
                         font: 18,
                         cor: Colors.blue,
                         fontWeight: FontWeight.bold,
-                        click: () {},
+                        onPressed: (){
+                          
+                        },
                         backgroundColor: Colors.white,
                         margin: EdgeInsets.only(top: 30, left: 60, right: 60),
                       ),
