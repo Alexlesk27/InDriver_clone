@@ -44,7 +44,7 @@ class Registercontent extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
-                colors: [Color.fromARGB(255, 248, 247, 247), Color.fromARGB(255, 170, 178, 185)],
+                colors: [Colors.black, Colors.blue],
               ),
             ),
             child: Stack(

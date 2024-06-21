@@ -22,30 +22,34 @@ class DefaultTextFieldOutlined extends StatelessWidget {
               topLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
       child: TextFormField(
         decoration: InputDecoration(
-          label: Text(text),
+          label: Text(
+            text,
+            style: TextStyle(color: Colors.white),
+          ),
           //border: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
             color: const Color.fromARGB(255, 33, 150, 243),
             width: 2,
-          )
-          ),
-           enabledBorder: OutlineInputBorder(
+          )),
+          enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-            color: const Color.fromARGB(255, 228, 224, 224),
+            color: Color.fromARGB(255, 243, 239, 239),
             width: 1,
-          )
-          ),
+          )),
           prefixIcon: Container(
             margin: EdgeInsets.only(top: 10),
             child: Wrap(
               alignment: WrapAlignment.spaceEvenly,
               children: [
-                Icon(icon),
+                Icon(
+                  icon,
+                  color: Colors.white,
+                ),
                 Container(
                   height: 20,
                   width: 1,
-                  color: const Color.fromARGB(255, 231, 228, 228),
+                  color: Color.fromARGB(255, 253, 247, 247),
                 )
               ],
             ),

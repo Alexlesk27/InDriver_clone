@@ -111,7 +111,7 @@ class LoginContent extends StatelessWidget {
                     icon: Icons.lock_outlined,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                   // Espaçamento entre os campos e o botão
+                  // Espaçamento entre os campos e o botão
                   DefaultBottom(
                     text: "Entrar",
                     font: 18.0,
@@ -125,12 +125,13 @@ class LoginContent extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     click: () {},
                   ),
-                  Container(
-                      margin: EdgeInsets.only(bottom: 20, top: 20),
-                      child: _textDontHaveAccount(context)),
+
+                  SizedBox(height: 10),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      
                       Container(
                         width: 20,
                         height: 1,
@@ -154,12 +155,14 @@ class LoginContent extends StatelessWidget {
                         width: 20,
                         height: 1,
                         color: Colors.white,
-                      )
+                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  )
+                
+                  Container(
+                    margin: EdgeInsets.only(bottom: 20, top: 20),
+                    child: _textDontHaveAccount(context),
+                  ),
                 ],
               ),
             ),
