@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/LoginBloc.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/LoginEvent.dart';
+import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/LoginStates.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/widgets/DefaultBottom.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/widgets/DefaultTextField.dart';
+import 'package:indriver_clone_flutter/src/presentation/utils/BlocFormItem.dart';
+import 'package:provider/provider.dart';
 
 class LoginContent extends StatelessWidget {
-  LoginBloc? bloc;
+  Loginstates? state;
 
-  LoginContent(this.bloc);
+  LoginContent(this.state);
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: bloc?.state.formKey,
+      key: state?.formKey,
       child: Stack(
         children: [
           Container(
@@ -98,7 +101,10 @@ class LoginContent extends StatelessWidget {
                     DefaultTextfield(
                       text: "Email",
                       onchanged: (text) {
-                         bloc?.add(EmailChanged(email: text));
+                         context.read<LoginBloc>().add(EmailChanged(email: BlocformItem(value: text)));
+                      },
+                      validator:(value){
+                        return state?.email.error;
                       },
                       icon: Icons.email_outlined,
                       margin: EdgeInsets.only(
@@ -110,7 +116,10 @@ class LoginContent extends StatelessWidget {
                     DefaultTextfield(
                       text: "Senha",
                       onchanged: (text) {
-                        bloc?.add(PasswordChanged(password: text));
+                        context.read<LoginBloc>().add(PasswordChanged(password: BlocformItem(value: text)));
+                      },
+                      validator:(value){
+                        return state?.password.error;
                       },
                       margin: EdgeInsets.only(
                         top: 20,
@@ -133,7 +142,12 @@ class LoginContent extends StatelessWidget {
                       cor: Colors.blue,
                       fontWeight: FontWeight.bold,
                       onPressed: () {
-                        bloc?.add(FormSubmit());
+                        if(state!.formKey!.currentState!.validate()){
+                            context.read<LoginBloc>().add(FormSubmit());
+                        }else{
+                          print("Formulario invalido");
+                        }
+                     
                       },
                     ),
 

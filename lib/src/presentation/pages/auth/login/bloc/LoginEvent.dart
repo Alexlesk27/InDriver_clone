@@ -1,14 +1,16 @@
+import 'package:indriver_clone_flutter/src/presentation/utils/BlocFormItem.dart';
+
 abstract class LoginEvent{}
 
 class LoginInitEvent extends LoginEvent{}
 
 class EmailChanged extends LoginEvent{
-   final String email;
+   final  BlocformItem email;
    EmailChanged({required this.email});
 }
 
 class PasswordChanged extends LoginEvent{
-   final String password;
+   final BlocformItem password;
    PasswordChanged({required this.password});
 }
 

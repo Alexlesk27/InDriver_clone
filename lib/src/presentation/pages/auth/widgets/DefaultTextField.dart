@@ -6,11 +6,13 @@ class DefaultTextfield extends StatelessWidget {
   Function(String text) onchanged;
   IconData icon;
   EdgeInsetsGeometry margin;
+  String? Function (String?)? validator;
   
   DefaultTextfield({
     required this.text,
     required this.icon,
     required this.onchanged,
+    this.validator,
     this.margin = const EdgeInsets.only(top: 50, left: 20, right: 20),
   });
 
@@ -24,6 +26,7 @@ class DefaultTextfield extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
       child: TextFormField(
+        validator: validator,
         onChanged: (text){
           onchanged(text);
         },

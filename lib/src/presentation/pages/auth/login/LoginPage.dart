@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         // backgroundColor: Color.fromARGB(255, 68, 255, 162),
       body: BlocBuilder<LoginBloc, Loginstates>(
       builder: (context, state) {
-        return LoginContent(_bloc);
+        return LoginContent(state);
       },
     ));
   }
